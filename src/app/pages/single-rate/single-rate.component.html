@@ -1,0 +1,57 @@
+<div class="row justify-content-between">
+    <div class="col-6 table-responsive">
+      <div class="pb-3" *ngIf="baseCurrencyForReturn">
+        <a [routerLink]="['/all', baseCurrencyForReturn]"><< Return to previous list</a>
+      </div>
+      <table class="table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Rate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dateItem of exchangeRateList | keyvalue">
+            <td>{{dateItem.key | date : 'dd.MM.yyyy'}}</td>
+            <td *ngFor="let currencyItem of dateItem.value | keyvalue">{{currencyItem.value}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-4">
+      <form>
+        <div class="form-group">
+            <label class="form-label">Selected currency:</label>
+            <select class="form-control" [(ngModel)]="filter.selectedCurrency" name="selectedCurrency" (change)="getExchangeRates()">
+              <option *ngFor="let key of currencySelectOptions" [value]="currencyEnum[key]" [label]="currencyEnum[key]"></option>
+            </select>
+          </div>
+        <div class="form-group">
+          <label class="form-label">Base currency:</label>
+          <select class="form-control" [(ngModel)]="filter.baseCurrency" name="baseCurrency" (change)="getExchangeRates()">
+            <option *ngFor="let key of currencySelectOptions" [value]="currencyEnum[key]" [label]="currencyEnum[key]"></option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Date from:</label>
+          <input type="text" class="form-control" bsDatepicker
+            [(ngModel)]="filter.dateFrom" name="dateFrom"
+            [bsConfig]="datepickerOptions"
+            (ngModelChange)="getExchangeRates()">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Date till:</label>
+            <input type="text" class="form-control" bsDatepicker
+              [(ngModel)]="filter.dateTill" name="dateTill"
+              [bsConfig]="datepickerOptions"
+              (ngModelChange)="getExchangeRates()">
+          </div>
+        <div class="row">
+          <div class="col">
+            <button type="button" class="btn btn-secondary"
+              (click)="getExchangeRates()">Get rates</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

@@ -1,0 +1,15 @@
+<div class="container my-3">
+  <h1 class="py-3">{{title}}</h1>
+  <ul class="nav nav-tabs">
+    <li class="nav-item" *ngFor="let tab of tabList">
+      <a class="nav-link" routerLinkActive="active"
+        [routerLink]="tab.route">{{tab.name}}</a>
+    </li>
+  </ul>
+  <div class="tab-content p-5">
+    <app-messages></app-messages>
+    <div class="tab-pane active">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
