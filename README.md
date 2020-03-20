@@ -1,6 +1,7 @@
 # Currency Exchange Rates
 
-Angular based single page application for currency exchange rates (current and historical).
+Angular based single page application for currency exchange rates (current and historical). [Live demo.](https://ritakrastina.github.io/currency-exchange-rates/)
+
 Data source from [Foreign exchange rates API](https://exchangeratesapi.io/).
 
 ## Built with
