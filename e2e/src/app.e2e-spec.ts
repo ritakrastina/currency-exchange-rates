@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('exchange-rates app is running!');
+    expect(page.getTitleText()).toEqual('currency-exchange-rates app is running!');
   });
 
   afterEach(async () => {
