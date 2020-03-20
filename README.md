@@ -13,7 +13,7 @@ Data source from [Foreign exchange rates API](https://exchangeratesapi.io/).
 
 ## Development
 
-To run application, clone `master` branch locally, execute folowing commands and open browser on http://localhost:4200/.
+To run application, clone `master` branch locally, execute following commands and open browser on http://localhost:4200/.
 ```
 npm install -g @angular/cli
 npm install
@@ -30,7 +30,7 @@ To run application in docker container, have installed [Docker](https://www.dock
 
 Create application production build using command `ng build --prod`.
 
-Then locate to docker terminal, change directory to application location using `cd` command and execute folowing commands to build an image and run it in a container.
+Then locate to docker terminal, change directory to application location using `cd` command and execute following commands to build an image and run it in a container.
 ```
 docker build -f Dockerfile -t currency-exchange-rates-image .
 docker run --name currency-exchange-rates-container -d -p 8080:80 currency-exchange-rates-image
