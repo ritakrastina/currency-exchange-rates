@@ -24,7 +24,7 @@ npm ng serve
 
 Run `ng build` to build the project. Result will be stored in the `dist/currency-exchange-rates` directory. Use the `--prod` flag for a production build.
 
-## Development in Docker
+## Development in docker
 
 To run application in docker container, have installed [Docker](https://www.docker.com/).
 
@@ -32,8 +32,10 @@ Create application production build using command `ng build --prod`.
 
 Then locate to docker terminal, change directory to application location using `cd` command and execute folowing commands to build an image and run it in a container.
 ```
-docker build -t currency-exchange-rates-image .
+docker build -f Dockerfile -t currency-exchange-rates-image .
 docker run --name currency-exchange-rates-container -d -p 8080:80 currency-exchange-rates-image
 ```
 
- Open browser on http://localhost:8080/ where the application is running in docker container.
+To check if the image and container was created, use `docker image ls` and `docker container ls`.
+
+Open browser on http://localhost:8080/ where the application should be running in docker container.
